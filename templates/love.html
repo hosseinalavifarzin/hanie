@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Our Days</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/love.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="universe">
+
+    <div class="stars stars-small"></div>
+    <div class="stars stars-medium"></div>
+    <div class="stars stars-large"></div>
+
+    <div class="galaxy galaxy-one"></div>
+    <div class="galaxy galaxy-two"></div>
+
+    <div class="ambient-glow"></div>
+
+</div>
+
+
+<div id="shooting-stars"></div>
+
+
+<main class="love-page">
+
+
+    <!-- BACK -->
+
+    <a
+        href="{{ url_for('home.home') }}"
+        class="back-button"
+    >
+
+        <span class="back-icon">←</span>
+
+        <span>Back</span>
+
+    </a>
+
+
+
+    <!-- HEADER -->
+
+    <header class="love-header">
+
+        <span class="header-label">
+            OUR LITTLE UNIVERSE
+        </span>
+
+        <h1>
+            Every day that passes
+            <br>
+            makes this a little bigger.
+        </h1>
+
+        <div class="header-line"></div>
+
+    </header>
+
+
+
+    <!-- GRAPH -->
+
+    <section class="graph-section">
+
+        <div class="graph-title">
+
+            <span>
+                LOVE
+            </span>
+
+            <span>
+                x²
+            </span>
+
+        </div>
+
+
+        <div class="graph-container">
+
+            <svg
+                id="love-graph"
+                viewBox="0 0 500 300"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+
+                <!-- Y AXIS -->
+
+                <line
+                    class="graph-axis"
+                    x1="60"
+                    y1="260"
+                    x2="60"
+                    y2="25"
+                />
+
+
+                <!-- X AXIS -->
+
+                <line
+                    class="graph-axis"
+                    x1="60"
+                    y1="260"
+                    x2="475"
+                    y2="260"
+                />
+
+
+                <!-- Y ARROW -->
+
+                <path
+                    class="axis-arrow"
+                    d="M60 20 L55 30 L65 30 Z"
+                />
+
+
+                <!-- X ARROW -->
+
+                <path
+                    class="axis-arrow"
+                    d="M480 260 L470 255 L470 265 Z"
+                />
+
+
+                <!-- X LABEL -->
+
+                <text
+                    class="axis-label"
+                    x="455"
+                    y="282"
+                >
+                    DAYS
+                </text>
+
+
+                <!-- Y LABEL -->
+
+                <text
+                    class="axis-label"
+                    x="15"
+                    y="35"
+                >
+                    LOVE
+                </text>
+
+
+
+                <!-- =====================
+                     ORIGINAL HEART
+                ====================== -->
+
+                <path
+                    id="heart-path"
+                    class="heart-path"
+                    d="
+                        M267 205
+
+                        C252 190 177 140 177 65
+
+                        C177 15 237 5 267 50
+
+                        C297 5 357 15 357 65
+
+                        C357 140 282 190 267 205
+
+                        Z
+                    "
+                />
+
+            </svg>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- NUMBERS -->
+
+    <section class="numbers-section">
+
+        <span class="section-label">
+            THE NUMBER OF US
+        </span>
+
+
+        <div
+            class="love-number"
+            id="love-number"
+            data-value="{{ love }}"
+        >
+            0
+        </div>
+
+
+        <div class="equation">
+
+            <span>{{ days }}</span>
+
+            <span>×</span>
+
+            <span>{{ days }}</span>
+
+            <span>=</span>
+
+            <strong>{{ love }}</strong>
+
+        </div>
+
+
+        <span class="days-label">
+            DAYS TOGETHER
+        </span>
+
+    </section>
+
+
+
+    <!-- WHY X2 -->
+
+    <section class="why-section">
+
+        <div class="why-title">
+
+            <span class="why-symbol">
+                ×
+            </span>
+
+            <h2>
+                Why X²?
+            </h2>
+
+        </div>
+
+
+        <p>
+
+            Because one day becomes another,
+            and another, and another.
+
+            <br>
+
+            And somehow,
+            it keeps getting bigger.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="love-footer">
+
+        <div class="footer-line"></div>
+
+        <p>
+
+            Just like this little equation,
+
+            <br>
+
+            <strong>
+                every day that passes,
+                I find a little more of you to love.
+            </strong>
+
+        </p>
+
+        <span class="footer-star">
+            ✦
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+<script
+    src="{{ url_for('static', filename='js/love.js') }}"
+></script>
+
+
+<script
+    src="{{ url_for('static', filename='js/shooting-stars.js') }}"
+></script>
+
+
+</body>
+
+</html>

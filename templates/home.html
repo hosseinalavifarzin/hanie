@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Hanie</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/home.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="universe">
+
+
+    <!-- Stars -->
+
+    <div class="stars stars-small"></div>
+    <div class="stars stars-medium"></div>
+    <div class="stars stars-large"></div>
+
+
+    <!-- Galaxy -->
+
+    <div class="galaxy galaxy-one"></div>
+    <div class="galaxy galaxy-two"></div>
+
+
+    <!-- Ambient light -->
+
+    <div class="ambient-glow"></div>
+
+
+    <!-- Shooting stars -->
+
+    <div id="shooting-stars"></div>
+
+
+
+    <section class="home-content">
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <span class="brand-symbol">
+                    ✦
+                </span>
+
+                <span>
+                    HANIE
+                </span>
+
+            </div>
+
+
+            <div class="header-date">
+                a universe of our own
+            </div>
+
+        </header>
+
+
+
+        <!-- Intro -->
+
+        <section class="intro">
+
+            <span class="intro-small">
+                in a world of billions
+            </span>
+
+
+            <h1>
+                somehow,
+                <span>I found you</span>
+            </h1>
+
+
+            <p>
+                And somewhere along the way,
+                you became my favorite part of every day.
+            </p>
+
+        </section>
+
+
+
+        <!-- Main Menu -->
+
+        <nav class="main-menu">
+
+
+            <!-- Our Days -->
+
+            <a
+                href="{{ url_for('love.love') }}"
+                class="cosmic-button button-x2"
+            >
+
+                <span class="button-number">
+                    01
+                </span>
+
+
+                <div class="button-icon">
+
+                    <span class="icon-x2">
+                        x²
+                    </span>
+
+                </div>
+
+
+                <div class="button-text">
+
+                    <strong>
+                        The Days We Keep
+                    </strong>
+
+                    <small>
+                        Every moment that became ours
+                    </small>
+
+                </div>
+
+
+                <span class="button-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+
+            <!-- Places -->
+
+            <a
+                href="{{ url_for('places.places') }}"
+                class="cosmic-button"
+            >
+
+                <span class="button-number">
+                    02
+                </span>
+
+
+                <div class="button-icon">
+
+                    <span class="icon">
+                        ⌖
+                    </span>
+
+                </div>
+
+
+                <div class="button-text">
+
+                    <strong>
+                        Places We'll Go
+                    </strong>
+
+                    <small>
+                        A map full of maybe's
+                    </small>
+
+                </div>
+
+
+                <span class="button-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+
+            <!-- Favorite Game -->
+
+            <a
+                href="{{ url_for('game.game') }}"
+                class="cosmic-button"
+            >
+
+                <span class="button-number">
+                    03
+                </span>
+
+
+                <div class="button-icon">
+
+                    <span class="icon">
+                        ✦
+                    </span>
+
+                </div>
+
+
+                <div class="button-text">
+
+                    <strong>
+                        Our Little Game
+                    </strong>
+
+                    <small>
+                        Just for when you need a smile
+                    </small>
+
+                </div>
+
+
+                <span class="button-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- Footer -->
+
+        <footer class="footer">
+
+            <span>
+                made for us
+            </span>
+
+            <span class="footer-star">
+                ✦
+            </span>
+
+            <span>
+                2026
+            </span>
+
+        </footer>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script
+    src="{{ url_for('static', filename='js/home.js') }}"
+></script>
+
+
+</body>
+
+</html>

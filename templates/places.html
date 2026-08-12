@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Places</title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/places.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     UNIVERSE
+========================= -->
+
+<div class="universe">
+
+    <div class="stars stars-small"></div>
+
+    <div class="stars stars-medium"></div>
+
+    <div class="stars stars-large"></div>
+
+    <div class="galaxy galaxy-one"></div>
+
+    <div class="galaxy galaxy-two"></div>
+
+    <div class="ambient-glow"></div>
+
+</div>
+
+
+<!-- Shooting stars -->
+
+<div id="shooting-stars"></div>
+
+
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="places-page">
+
+
+    <!-- BACK -->
+
+
+    <a
+        href="{{ url_for('home.home') }}"
+        class="back-button"
+    >
+
+        <span class="back-icon">←</span>
+
+        <span>Back</span>
+
+    </a>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="places-header">
+
+        <span class="header-label">
+            OUR LITTLE MAP
+        </span>
+
+
+        <h1>
+            جاهایی که هنوز
+            <br>
+            با هم کشف نکردیم.
+        </h1>
+
+
+        <p>
+            همه‌ی آن جاهایی که یک روز گفتیم
+            «حتماً با هم میریم.»
+        </p>
+
+
+        <div class="header-line"></div>
+
+    </header>
+
+
+
+    <!-- =========================
+         STATS
+    ========================= -->
+
+    <section class="stats">
+
+
+        <div class="stat">
+
+            <span class="stat-number">
+                {{ places|length }}
+            </span>
+
+            <span class="stat-label">
+                همه جاها
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span class="stat-number">
+                {{ places|selectattr("visited", "equalto", true)|list|length }}
+            </span>
+
+            <span class="stat-label">
+                خاطره ساختیم
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span class="stat-number">
+                {{ places|rejectattr("visited")|list|length }}
+            </span>
+
+            <span class="stat-label">
+                هنوز مونده
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         FILTERS
+    ========================= -->
+
+    <nav class="filters">
+
+
+        <button
+            class="filter-button active"
+            data-category="all"
+        >
+            همه
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="cafe"
+        >
+            ☕ کافه
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="fun"
+        >
+            ✦ تفریح
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="travel"
+        >
+            ◇ سفر
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="restaurant"
+        >
+            ◌ رستوران
+        </button>
+
+
+    </nav>
+
+
+
+    <!-- =========================
+         PLACES
+    ========================= -->
+
+    <section class="places-list">
+
+
+        {% for place in places %}
+
+
+        <article
+            class="place-card {% if place.visited %}visited{% endif %}"
+            data-category="{{ place.category }}"
+        >
+
+
+            <div class="place-main">
+
+
+                <!-- ICON -->
+
+                <div class="place-icon">
+
+                    {% if place.category == "cafe" %}
+
+                        ☕
+
+                    {% elif place.category == "fun" %}
+
+                        ✦
+
+                    {% elif place.category == "travel" %}
+
+                        ◇
+
+                    {% elif place.category == "restaurant" %}
+
+                        ◌
+
+                    {% endif %}
+
+                </div>
+
+
+
+                <!-- CONTENT -->
+
+                <div class="place-content">
+
+
+                    <span class="category-name">
+
+                        {% if place.category == "cafe" %}
+
+                            CAFE
+
+                        {% elif place.category == "fun" %}
+
+                            FUN
+
+                        {% elif place.category == "travel" %}
+
+                            TRAVEL
+
+                        {% elif place.category == "restaurant" %}
+
+                            RESTAURANT
+
+                        {% endif %}
+
+                    </span>
+
+
+                    <h2>
+                        {{ place.name }}
+                    </h2>
+
+
+                    <p>
+                        {{ place.description }}
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="place-actions">
+
+
+                {% if place.link %}
+
+                <a
+                    href="{{ place.link }}"
+                    target="_blank"
+                    class="location-link"
+                >
+
+                    مشاهده مکان
+                    <span>↗</span>
+
+                </a>
+
+                {% endif %}
+
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for(
+                        'places.toggle_visited',
+                        place_id=place.id
+                    ) }}"
+                >
+
+                    <button
+                        type="submit"
+                        class="visited-button"
+                    >
+
+                        <span class="check">
+
+                            {% if place.visited %}
+                                ✓
+                            {% else %}
+                                ○
+                            {% endif %}
+
+                        </span>
+
+
+                        {% if place.visited %}
+
+                            رفتیم
+
+                        {% else %}
+
+                            رفتیم؟
+
+                        {% endif %}
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </article>
+
+
+        {% endfor %}
+
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer class="places-footer">
+
+        <span>
+            هنوز کلی ماجراجویی مونده.
+        </span>
+
+
+        <span class="footer-star">
+            ✦
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+
+<script
+    src="{{ url_for('static', filename='js/places.js') }}"
+></script>
+
+
+<script
+    src="{{ url_for('static', filename='js/shooting-stars.js') }}"
+></script>
+
+
+</body>
+
+</html>

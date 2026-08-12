@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "کافه نمونه",
+        "category": "cafe",
+        "description": "یه کافه که دوست داریم با هم بریم.",
+        "link": "https://example.com",
+        "visited": false
+    },
+    {
+        "id": 2,
+        "name": "رستوران نمونه",
+        "category": "restaurant",
+        "description": "اینجا باید با هم غذا بخوریم.",
+        "link": "https://example.com",
+        "visited": false
+    },
+    {
+        "id": 3,
+        "name": "یه جای تفریحی",
+        "category": "fun",
+        "description": "برای یه روز پر از خنده و شیطنت.",
+        "link": "https://example.com",
+        "visited": false
+    },
+    {
+        "id": 4,
+        "name": "سفر رویایی",
+        "category": "travel",
+        "description": "یکی از جاهایی که حتماً باید با هم بریم.",
+        "link": "https://example.com",
+        "visited": false
+    }
+]

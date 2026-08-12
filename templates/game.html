@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Favorite Game</title>
+
+    <!-- SAME BACKGROUND AS HOME -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/home.css') }}"
+    >
+
+    <!-- GAME STYLE -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/game.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<main class="universe">
+
+    <!-- =========================================
+         SAME COSMIC BACKGROUND AS HOME
+    ========================================== -->
+
+    <div class="stars stars-small"></div>
+    <div class="stars stars-medium"></div>
+    <div class="stars stars-large"></div>
+
+    <div class="galaxy galaxy-one"></div>
+    <div class="galaxy galaxy-two"></div>
+
+    <div class="ambient-glow"></div>
+
+    <div id="shooting-stars"></div>
+
+
+    <!-- =========================================
+         GAME CONTENT
+    ========================================== -->
+
+    <section class="game-content">
+
+
+        <!-- Header -->
+
+        <header class="game-header">
+
+            <a
+                href="{{ url_for('home.home') }}"
+                class="back-button"
+            >
+                ←
+            </a>
+
+            <div class="game-label">
+                FAVORITE GAME
+            </div>
+
+            <span class="game-symbol">
+                ✦
+            </span>
+
+        </header>
+
+
+        <!-- Intro -->
+
+        <section class="game-intro">
+
+            <span class="game-eyebrow">
+                A LITTLE GAME FOR US
+            </span>
+
+            <h1>
+                Guess the word.
+            </h1>
+
+            <p>
+                Let's see how well you know the little things.
+            </p>
+
+        </section>
+
+
+        <!-- Game -->
+
+        <section class="game-area">
+
+
+            <!-- Stats -->
+
+            <div class="game-stats">
+
+                <div class="game-stat">
+
+                    <span>
+                        SCORE
+                    </span>
+
+                    <strong>
+                        {{ score }}
+                    </strong>
+
+                </div>
+
+
+                <div class="game-stat">
+
+                    <span>
+                        MISTAKES
+                    </span>
+
+                    <strong>
+                        {{ mistakes }}
+                    </strong>
+
+                </div>
+
+
+                <div class="game-stat">
+
+                    <span>
+                        TIME
+                    </span>
+
+                    <strong id="timer">
+                        {{ remaining_time }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Word -->
+
+            <div class="word-section">
+
+                <span class="word-label">
+                    UNSCRAMBLE
+                </span>
+
+                <div class="scrambled-word">
+                    {{ scrambled_word }}
+                </div>
+
+            </div>
+
+
+            <!-- Message -->
+
+            {% if message %}
+
+            <div class="game-message">
+
+                {{ message }}
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- Guess -->
+
+            {% if not game_over %}
+
+            <form
+                method="POST"
+                class="guess-form"
+            >
+
+                <input
+                    type="text"
+                    name="guess"
+                    autocomplete="off"
+                    autofocus
+                    placeholder="Your answer..."
+                >
+
+                <button type="submit">
+
+                    Guess
+
+                    <span>
+                        ↗
+                    </span>
+
+                </button>
+
+            </form>
+
+            {% endif %}
+
+
+            <!-- Game Over -->
+
+            {% if game_over %}
+
+            <div class="game-over">
+
+                <span>
+                    FINAL SCORE
+                </span>
+
+                <strong>
+                    {{ final_score }}
+                </strong>
+
+                <a
+                    href="{{ url_for('game.restart') }}"
+                    class="restart-button"
+                >
+                    Play Again
+                </a>
+
+            </div>
+
+            {% endif %}
+
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer class="game-footer">
+
+            <span>
+                made for two
+            </span>
+
+            <span>
+                ✦
+            </span>
+
+            <span>
+                2026
+            </span>
+
+        </footer>
+
+
+    </section>
+
+</main>
+
+
+<!-- SAME HOME JS
+     This includes the shooting-star system -->
+<script
+    src="{{ url_for('static', filename='js/home.js') }}"
+></script>
+
+
+<!-- GAME JS -->
+<script
+    src="{{ url_for('static', filename='js/game.js') }}"
+></script>
+
+
+</body>
+
+</html>
