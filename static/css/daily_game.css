@@ -46,16 +46,16 @@
 }
 
 
+/* EXACTLY LIKE FAVORITE GAME */
+
 .back-button {
 
     width: 46px;
-
     height: 46px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border-radius: 14px;
@@ -176,7 +176,7 @@
 
     justify-content: center;
 
-    gap: 90px;
+    gap: 70px;
 
     margin-bottom: 42px;
 }
@@ -207,7 +207,7 @@
 
 
 /* =========================================
-   WORD / HINT
+   DAILY QUESTION
 ========================================= */
 
 .word-section {
@@ -230,7 +230,7 @@
 }
 
 
-.hint-text {
+.scrambled-word {
 
     min-height: 85px;
 
@@ -240,15 +240,17 @@
 
     justify-content: center;
 
+    direction: rtl;
+
     color: var(--text);
 
-    font-size: 24px;
+    font-size: 38px;
 
     font-weight: 400;
 
-    line-height: 1.8;
+    letter-spacing: 0;
 
-    direction: rtl;
+    line-height: 1.8;
 }
 
 
@@ -295,7 +297,7 @@
 }
 
 
-/* INPUT - RIGHT */
+/* INPUT - RIGHT SIDE */
 
 .guess-form input {
 
@@ -337,7 +339,7 @@
 }
 
 
-/* BUTTON - LEFT */
+/* GUESS BUTTON - LEFT SIDE */
 
 .guess-form button {
 
@@ -382,6 +384,48 @@
 
 
 /* =========================================
+   ATTEMPTS
+========================================= */
+
+.attempts {
+
+    margin-top: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    direction: ltr;
+}
+
+
+.attempts span {
+
+    color: var(--text-muted);
+
+    font-size: 17px;
+}
+
+
+.attempts .used {
+
+    color: var(--text);
+}
+
+
+.attempt-text {
+
+    margin-top: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
    GAME OVER
 ========================================= */
 
@@ -409,44 +453,43 @@
 
     margin: 8px 0 20px;
 
-    font-size: 28px;
+    font-size: 46px;
 
     font-weight: 400;
 }
 
 
-/* =========================================
-   ATTEMPT HEARTS
-========================================= */
+.restart-button {
 
-.attempt-hearts {
+    display: inline-flex;
 
-    margin-top: 35px;
-
-    display: flex;
+    align-items: center;
 
     justify-content: center;
 
-    gap: 10px;
+    padding: 12px 22px;
 
-    direction: ltr;
-}
+    border-radius: 13px;
 
+    background: var(--surface);
 
-.attempt-hearts span {
+    border: 1px solid var(--border);
 
-    color: var(--text-muted);
+    color: var(--text);
 
-    font-size: 19px;
+    text-decoration: none;
+
+    font-size: 12px;
 
     transition: var(--transition);
 }
 
 
-.attempt-hearts .used {
+.restart-button:hover {
 
-    color: var(--text);
+    border-color: var(--border-hover);
 
+    transform: translateY(-2px);
 }
 
 
@@ -502,7 +545,7 @@
 
     .game-stats {
 
-        gap: 45px;
+        gap: 30px;
 
         margin-bottom: 32px;
     }
@@ -514,9 +557,9 @@
     }
 
 
-    .hint-text {
+    .scrambled-word {
 
-        font-size: 21px;
+        font-size: 30px;
     }
 
 

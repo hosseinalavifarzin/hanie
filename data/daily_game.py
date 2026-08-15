@@ -1,11 +1,8 @@
-daily_game = {
-    "word": "عسل",
+import random
 
-    "hints": [
-        "تو خیلی خیلی .... هستی",
-        "فارسی وارد کن",
-        "معمولاً یک اتاق را از اتاق دیگر جدا می‌کند.",
-        "خانه بدون آن کمی عجیب به نظر می‌رسد.",
-        "چهار حرف دارد و معمولاً جلوی توست!"
-    ]
-}
+from data.daily_words import daily_words
+
+
+def get_daily_word():
+
+    return random.choice(daily_words)
