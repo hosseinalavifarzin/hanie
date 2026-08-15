@@ -38,65 +38,129 @@
 
 .game-header {
 
-    display: flex;
+    position: relative;
 
-    align-items: center;
+    width: 100%;
 
-    justify-content: space-between;
-}
-
-
-.back-button {
-
-    width: 46px;
     height: 46px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
+}
 
-    border-radius: 14px;
 
-    background: var(--surface);
+/* =========================================
+   BACK BUTTON
+   SAME STYLE AS LOVE
+========================================= */
 
-    border: 1px solid var(--border);
+.back-button {
 
-    color: var(--text-soft);
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px 14px;
+
+    border-radius: 12px;
+
+    color:
+        rgba(255,255,255,.75);
 
     text-decoration: none;
 
-    font-size: 20px;
+    font-size: 10px;
 
-    transition: var(--transition);
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.11);
+
+    backdrop-filter:
+        blur(14px);
+
+    transition:
+        .25s ease;
 }
 
 
 .back-button:hover {
 
-    color: var(--text);
+    color: white;
 
-    border-color: var(--border-hover);
-
-    transform: translateX(-4px);
+    transform:
+        translateX(-3px);
 }
 
 
+.back-icon {
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   CENTER LABEL
+========================================= */
+
 .game-label {
 
-    color: var(--text-muted);
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    color:
+        var(--text-muted);
 
     font-size: 10px;
 
     letter-spacing: 4px;
+
+    white-space: nowrap;
 }
 
 
+/* =========================================
+   RIGHT SYMBOL
+========================================= */
+
 .game-symbol {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 0;
+
+    transform:
+        translateY(-50%);
 
     font-size: 20px;
 
-    color: var(--text-soft);
+    color:
+        var(--text-soft);
 }
 
 
@@ -108,7 +172,8 @@
 
     text-align: center;
 
-    padding: 55px 0 25px;
+    padding:
+        55px 0 25px;
 }
 
 
@@ -118,7 +183,8 @@
 
     margin-bottom: 12px;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     font-size: 10px;
 
@@ -140,9 +206,11 @@
 
 .game-intro p {
 
-    margin: 12px 0 0;
+    margin:
+        12px 0 0;
 
-    color: var(--text-soft);
+    color:
+        var(--text-soft);
 
     font-size: 13px;
 
@@ -180,13 +248,22 @@
 }
 
 
+.game-stat {
+
+    text-align: center;
+
+    min-width: 70px;
+}
+
+
 .game-stat span {
 
     display: block;
 
     margin-bottom: 7px;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     font-size: 10px;
 
@@ -210,7 +287,10 @@
 
 .word-section {
 
-    padding: 20px 0 35px;
+    padding:
+        20px 0 35px;
+
+    text-align: center;
 }
 
 
@@ -220,7 +300,8 @@
 
     margin-bottom: 20px;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     font-size: 10px;
 
@@ -240,7 +321,8 @@
 
     direction: rtl;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-size: 38px;
 
@@ -256,9 +338,15 @@
 
 .game-message {
 
-    margin: 0 auto 20px;
+    width: 100%;
 
-    color: var(--text-soft);
+    margin:
+        0 auto 20px;
+
+    text-align: center;
+
+    color:
+        var(--text-soft);
 
     font-size: 12px;
 
@@ -293,7 +381,10 @@
 }
 
 
-/* INPUT - RIGHT SIDE */
+/* =========================================
+   INPUT
+   RIGHT SIDE
+========================================= */
 
 .guess-form input {
 
@@ -301,17 +392,22 @@
 
     height: 48px;
 
-    padding: 0 15px;
+    padding:
+        0 15px;
 
     border-radius: 13px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     outline: none;
 
-    background: var(--surface);
+    background:
+        var(--surface);
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-family: inherit;
 
@@ -319,23 +415,29 @@
 
     direction: rtl;
 
-    transition: var(--transition);
+    transition:
+        var(--transition);
 }
 
 
 .guess-form input::placeholder {
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 }
 
 
 .guess-form input:focus {
 
-    border-color: var(--border-hover);
+    border-color:
+        var(--border-hover);
 }
 
 
-/* GUESS BUTTON - LEFT SIDE */
+/* =========================================
+   GUESS BUTTON
+   LEFT SIDE
+========================================= */
 
 .guess-form button {
 
@@ -343,15 +445,20 @@
 
     height: 48px;
 
-    padding: 0 17px;
+    padding:
+        0 17px;
 
     border-radius: 13px;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
-    background: var(--surface);
+    background:
+        var(--surface);
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-family: inherit;
 
@@ -361,15 +468,18 @@
 
     cursor: pointer;
 
-    transition: var(--transition);
+    transition:
+        var(--transition);
 }
 
 
 .guess-form button:hover {
 
-    border-color: var(--border-hover);
+    border-color:
+        var(--border-hover);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -386,6 +496,8 @@
 .game-over {
 
     padding-top: 15px;
+
+    text-align: center;
 }
 
 
@@ -393,7 +505,8 @@
 
     display: block;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     font-size: 10px;
 
@@ -405,7 +518,8 @@
 
     display: block;
 
-    margin: 8px 0 20px;
+    margin:
+        8px 0 20px;
 
     font-size: 46px;
 
@@ -421,29 +535,37 @@
 
     justify-content: center;
 
-    padding: 12px 22px;
+    padding:
+        12px 22px;
 
     border-radius: 13px;
 
-    background: var(--surface);
+    background:
+        var(--surface);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
-    color: var(--text);
+    color:
+        var(--text);
 
     text-decoration: none;
 
     font-size: 12px;
 
-    transition: var(--transition);
+    transition:
+        var(--transition);
 }
 
 
 .restart-button:hover {
 
-    border-color: var(--border-hover);
+    border-color:
+        var(--border-hover);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
@@ -465,7 +587,8 @@
 
     gap: 14px;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     font-size: 10px;
 }
@@ -479,11 +602,49 @@
 
     .game-content {
 
-        width: calc(100% - 30px);
+        width:
+            calc(100% - 30px);
 
         padding-top: 20px;
     }
 
+
+    /* BACK BUTTON */
+
+    .back-button {
+
+        top: 0;
+
+        left: 0;
+
+        padding:
+            9px 12px;
+    }
+
+
+    /* HEADER */
+
+    .game-header {
+
+        height: 42px;
+    }
+
+
+    .game-label {
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .game-symbol {
+
+        font-size: 17px;
+    }
+
+
+    /* INTRO */
 
     .game-intro {
 
@@ -497,11 +658,33 @@
     }
 
 
+    .game-intro p {
+
+        font-size: 12px;
+    }
+
+
+    /* STATS */
+
     .game-stats {
 
         gap: 30px;
 
         margin-bottom: 32px;
+    }
+
+
+    .game-stat {
+
+        min-width: 60px;
+    }
+
+
+    .game-stat span {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
     }
 
 
@@ -511,11 +694,19 @@
     }
 
 
+    /* WORD */
+
     .scrambled-word {
 
+        min-height: 70px;
+
         font-size: 30px;
+
+        letter-spacing: 3px;
     }
 
+
+    /* FORM */
 
     .guess-form {
 
@@ -528,12 +719,31 @@
     .guess-form input {
 
         width: 210px;
+
+        height: 46px;
+
+        font-size: 13px;
     }
 
 
     .guess-form button {
 
-        padding: 0 14px;
+        height: 46px;
+
+        padding:
+            0 14px;
+
+        font-size: 11px;
+    }
+
+
+    /* FOOTER */
+
+    .game-footer {
+
+        padding-top: 20px;
+
+        font-size: 9px;
     }
 
 }

@@ -12,6 +12,7 @@
 
     <title>Hanie</title>
 
+
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='css/home.css') }}"
@@ -26,38 +27,67 @@
 <main class="universe">
 
 
-    <!-- Stars -->
+    <!-- =========================================
+         STARS
+    ========================================== -->
 
     <div class="stars stars-small"></div>
+
     <div class="stars stars-medium"></div>
+
     <div class="stars stars-large"></div>
 
 
-    <!-- Galaxy -->
+
+    <!-- =========================================
+         GALAXY
+    ========================================== -->
 
     <div class="galaxy galaxy-one"></div>
+
     <div class="galaxy galaxy-two"></div>
 
 
-    <!-- Ambient light -->
+
+    <!-- =========================================
+         AMBIENT LIGHT
+    ========================================== -->
 
     <div class="ambient-glow"></div>
 
 
-    <!-- Shooting stars -->
+
+    <!-- =========================================
+         SHOOTING STARS
+    ========================================== -->
 
     <div id="shooting-stars"></div>
 
 
 
+    <!-- =========================================
+         HOME CONTENT
+    ========================================== -->
+
     <section class="home-content">
 
 
-        <!-- Header -->
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
 
         <header class="header">
 
-            <div class="brand">
+
+            <!-- SECRET DAILY GAME -->
+
+            <div
+                class="secret-brand"
+                id="secret-brand"
+                role="button"
+                tabindex="0"
+            >
 
                 <span class="brand-symbol">
                     ✦
@@ -70,44 +100,68 @@
             </div>
 
 
+
             <div class="header-date">
+
                 a universe of our own
+
             </div>
+
 
         </header>
 
 
 
-        <!-- Intro -->
+        <!-- =====================================
+             INTRO
+        ====================================== -->
 
         <section class="intro">
 
+
             <span class="intro-small">
+
                 in a world of billions
+
             </span>
 
 
+
             <h1>
+
                 somehow,
-                <span>I found you</span>
+
+                <span>
+                    I found you
+                </span>
+
             </h1>
 
 
+
             <p>
+
                 And somewhere along the way,
                 you became my favorite part of every day.
+
             </p>
+
 
         </section>
 
 
 
-        <!-- Main Menu -->
+        <!-- =====================================
+             MAIN MENU
+        ====================================== -->
 
         <nav class="main-menu">
 
 
-            <!-- Our Days -->
+
+            <!-- =================================
+                 OUR DAYS
+            ================================== -->
 
             <a
                 href="{{ url_for('love.love') }}"
@@ -149,7 +203,9 @@
 
 
 
-            <!-- Places -->
+            <!-- =================================
+                 PLACES
+            ================================== -->
 
             <a
                 href="{{ url_for('places.places') }}"
@@ -191,7 +247,9 @@
 
 
 
-            <!-- Favorite Game -->
+            <!-- =================================
+                 FAVORITE GAME
+            ================================== -->
 
             <a
                 href="{{ url_for('game.game') }}"
@@ -236,7 +294,9 @@
 
 
 
-        <!-- Footer -->
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
 
         <footer class="footer">
 
@@ -244,9 +304,11 @@
                 made for us
             </span>
 
+
             <span class="footer-star">
                 ✦
             </span>
+
 
             <span>
                 2026
@@ -261,6 +323,10 @@
 </main>
 
 
+
+<!-- =========================================
+     HOME JAVASCRIPT
+========================================== -->
 
 <script
     src="{{ url_for('static', filename='js/home.js') }}"

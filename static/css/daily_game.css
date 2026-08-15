@@ -46,17 +46,17 @@
 }
 
 
-/* EXACTLY LIKE FAVORITE GAME */
-
 .back-button {
 
-    width: 46px;
-    height: 46px;
-
-    display: flex;
+    display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
+
+    height: 46px;
+
+    padding: 0 16px;
 
     border-radius: 14px;
 
@@ -68,7 +68,11 @@
 
     text-decoration: none;
 
-    font-size: 20px;
+    font-family: inherit;
+
+    font-size: 12px;
+
+    white-space: nowrap;
 
     transition: var(--transition);
 }
@@ -91,6 +95,8 @@
     font-size: 10px;
 
     letter-spacing: 4px;
+
+    direction: ltr;
 }
 
 
@@ -125,6 +131,8 @@
     font-size: 10px;
 
     letter-spacing: 4px;
+
+    direction: ltr;
 }
 
 
@@ -137,6 +145,8 @@
     font-weight: 400;
 
     letter-spacing: -1px;
+
+    direction: ltr;
 }
 
 
@@ -149,6 +159,8 @@
     font-size: 13px;
 
     line-height: 1.8;
+
+    direction: ltr;
 }
 
 
@@ -182,6 +194,12 @@
 }
 
 
+.game-stat {
+
+    text-align: center;
+}
+
+
 .game-stat span {
 
     display: block;
@@ -190,9 +208,11 @@
 
     color: var(--text-muted);
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
+
+    direction: ltr;
 }
 
 
@@ -200,19 +220,25 @@
 
     display: block;
 
-    font-size: 23px;
+    font-size: 20px;
 
     font-weight: 400;
+
+    color: var(--text);
+
+    direction: ltr;
 }
 
 
 /* =========================================
-   DAILY QUESTION
+   HINT
 ========================================= */
 
 .word-section {
 
     padding: 20px 0 35px;
+
+    text-align: center;
 }
 
 
@@ -224,9 +250,11 @@
 
     color: var(--text-muted);
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 4px;
+
+    direction: ltr;
 }
 
 
@@ -240,17 +268,21 @@
 
     justify-content: center;
 
-    direction: rtl;
+    padding: 0 20px;
 
     color: var(--text);
 
-    font-size: 38px;
+    font-size: 32px;
 
     font-weight: 400;
 
     letter-spacing: 0;
 
     line-height: 1.8;
+
+    direction: ltr;
+
+    text-align: center;
 }
 
 
@@ -267,6 +299,10 @@
     font-size: 12px;
 
     line-height: 1.8;
+
+    text-align: center;
+
+    direction: ltr;
 }
 
 
@@ -297,7 +333,9 @@
 }
 
 
-/* INPUT - RIGHT SIDE */
+/* =========================================
+   INPUT - RIGHT
+========================================= */
 
 .guess-form input {
 
@@ -321,7 +359,9 @@
 
     font-size: 14px;
 
-    direction: rtl;
+    direction: ltr;
+
+    text-align: left;
 
     transition: var(--transition);
 }
@@ -339,7 +379,9 @@
 }
 
 
-/* GUESS BUTTON - LEFT SIDE */
+/* =========================================
+   BUTTON - LEFT
+========================================= */
 
 .guess-form button {
 
@@ -384,54 +426,14 @@
 
 
 /* =========================================
-   ATTEMPTS
-========================================= */
-
-.attempts {
-
-    margin-top: 28px;
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    direction: ltr;
-}
-
-
-.attempts span {
-
-    color: var(--text-muted);
-
-    font-size: 17px;
-}
-
-
-.attempts .used {
-
-    color: var(--text);
-}
-
-
-.attempt-text {
-
-    margin-top: 10px;
-
-    color: var(--text-muted);
-
-    font-size: 10px;
-}
-
-
-/* =========================================
    GAME OVER
 ========================================= */
 
 .game-over {
 
     padding-top: 15px;
+
+    text-align: center;
 }
 
 
@@ -441,9 +443,11 @@
 
     color: var(--text-muted);
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
+
+    direction: ltr;
 }
 
 
@@ -514,6 +518,8 @@
     color: var(--text-muted);
 
     font-size: 10px;
+
+    direction: ltr;
 }
 
 
@@ -559,7 +565,7 @@
 
     .scrambled-word {
 
-        font-size: 30px;
+        font-size: 27px;
     }
 
 

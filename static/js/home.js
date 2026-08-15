@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const shootingStars =
         document.getElementById("shooting-stars");
 
+    const secretBrand =
+        document.getElementById("secret-brand");
+
 
     /* =================================================
        MENU ENTRANCE
@@ -69,11 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
            RANDOM START POSITION
         ================================================= */
 
-        /*
-         * بیشتر از قسمت‌های بالایی و کناری
-         * صفحه شروع می‌شود.
-         */
-
         let startX;
         let startY;
 
@@ -90,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 Math.random() * width;
 
             startY =
-                Math.random() * height * .45;
+                Math.random() * height * 0.45;
 
         }
 
@@ -99,11 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Right
 
             startX =
-                width * .7 +
-                Math.random() * width * .3;
+                width * 0.7 +
+                Math.random() * width * 0.3;
 
             startY =
-                Math.random() * height * .7;
+                Math.random() * height * 0.7;
 
         }
 
@@ -112,10 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Upper-middle
 
             startX =
-                Math.random() * width * .8;
+                Math.random() * width * 0.8;
 
             startY =
-                Math.random() * height * .55;
+                Math.random() * height * 0.55;
+
         }
 
 
@@ -130,13 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
         /* =================================================
            RANDOM ANGLE
         ================================================= */
-
-        /*
-         * زاویه‌ی حرکت.
-         *
-         * حرکت اصلی به سمت RIGHT است.
-         * بنابراین HEAD همیشه سمت راست است.
-         */
 
         const angle =
             Math.random() * 45 - 25;
@@ -166,14 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
            MOVEMENT
         ================================================= */
 
-        /*
-         * همیشه مثبت است:
-         *
-         * +X = حرکت به سمت راست
-         *
-         * Y می‌تواند بالا یا پایین باشد.
-         */
-
         const distance =
             320 + Math.random() * 280;
 
@@ -202,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ================================================= */
 
         const duration =
-            1.4 + Math.random() * .8;
+            1.4 + Math.random() * 0.8;
 
 
         star.style.setProperty(
@@ -230,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             star.remove();
 
-        }, (duration + .2) * 1000);
+        }, (duration + 0.2) * 1000);
 
     }
 
@@ -244,5 +228,77 @@ document.addEventListener("DOMContentLoaded", () => {
         createShootingStar,
         8000
     );
+
+
+
+    /* =================================================
+       SECRET DAILY GAME
+       
+       Double click on HANIE
+       → Daily Game
+    ================================================= */
+
+    if (secretBrand) {
+
+        let clickCount = 0;
+
+        let clickTimer = null;
+
+
+        secretBrand.addEventListener(
+            "click",
+            (event) => {
+
+                /*
+                 * جلوگیری از رفتار پیش‌فرض مرورگر
+                 */
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                clickCount++;
+
+
+                clearTimeout(
+                    clickTimer
+                );
+
+
+                /* -----------------------------------------
+                   SECOND CLICK
+                ----------------------------------------- */
+
+                if (clickCount === 2) {
+
+                    clickCount = 0;
+
+
+                    window.location.assign(
+                        "/daily-game"
+                    );
+
+
+                    return;
+                }
+
+
+                /* -----------------------------------------
+                   RESET
+                   
+                   اگر کلیک دوم دیر انجام شود،
+                   دوباره از اول شروع می‌کنیم.
+                ----------------------------------------- */
+
+                clickTimer = setTimeout(() => {
+
+                    clickCount = 0;
+
+                }, 800);
+
+            }
+        );
+
+    }
 
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+
+<html lang="en" dir="ltr">
 
 <head>
 
@@ -12,16 +13,10 @@
 
     <title>Daily Game</title>
 
-
-    <!-- SAME BACKGROUND AS HOME -->
-
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='css/home.css') }}"
     >
-
-
-    <!-- DAILY GAME STYLE -->
 
     <link
         rel="stylesheet"
@@ -33,13 +28,10 @@
 
 <body>
 
-
 <main class="universe">
 
 
-    <!-- =========================================
-         COSMIC BACKGROUND
-    ========================================== -->
+    <!-- SAME BACKGROUND AS HOME -->
 
     <div class="stars stars-small"></div>
 
@@ -47,21 +39,16 @@
 
     <div class="stars stars-large"></div>
 
-
     <div class="galaxy galaxy-one"></div>
 
     <div class="galaxy galaxy-two"></div>
 
-
     <div class="ambient-glow"></div>
-
 
     <div id="shooting-stars"></div>
 
 
-    <!-- =========================================
-         DAILY GAME CONTENT
-    ========================================== -->
+    <!-- GAME -->
 
     <section class="game-content">
 
@@ -70,13 +57,7 @@
 
         <header class="game-header">
 
-
-            <a
-                href="{{ url_for('home.home') }}"
-                class="back-button"
-            >
-                ←
-            </a>
+           
 
 
             <div class="game-label">
@@ -88,38 +69,66 @@
                 ✦
             </span>
 
-
         </header>
-
 
 
         <!-- INTRO -->
 
         <section class="game-intro">
 
-
             <span class="game-eyebrow">
-                BEFORE YOU ENTER
+                YOUR DAILY KEY
             </span>
 
-
             <h1>
-                {{ hint }}
+                What's the password today?
             </h1>
 
-
             <p>
-                کلمه مناسب را حدس بزن.
+                Find the secret word and unlock our world.
             </p>
-
 
         </section>
 
 
-
-        <!-- GAME -->
+        <!-- GAME AREA -->
 
         <section class="game-area">
+
+
+            <!-- STATS -->
+
+            <div class="game-stats">
+
+                <div class="game-stat">
+
+                    <span>
+                        ATTEMPTS
+                    </span>
+
+                    <strong>
+                        {{ attempts }} / {{ max_attempts }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- HINT -->
+
+            <div class="word-section">
+
+                <span class="word-label">
+                    HINT
+                </span>
+
+
+                <div class="scrambled-word">
+                    {{ hint }}
+                </div>
+
+            </div>
 
 
             <!-- MESSAGE -->
@@ -127,16 +136,13 @@
             {% if message %}
 
             <div class="game-message">
-
                 {{ message }}
-
             </div>
 
             {% endif %}
 
 
-
-            <!-- GUESS FORM -->
+            <!-- INPUT + BUTTON -->
 
             {% if not game_over %}
 
@@ -145,15 +151,7 @@
                 class="guess-form"
             >
 
-
-                <input
-                    type="text"
-                    name="guess"
-                    autocomplete="off"
-                    autofocus
-                    placeholder="جوابت..."
-                >
-
+                <!-- BUTTON = LEFT -->
 
                 <button type="submit">
 
@@ -166,10 +164,19 @@
                 </button>
 
 
+                <!-- INPUT = RIGHT -->
+
+                <input
+                    type="text"
+                    name="guess"
+                    autocomplete="off"
+                    autofocus
+                    placeholder="Your answer..."
+                >
+
             </form>
 
             {% endif %}
-
 
 
             <!-- GAME OVER -->
@@ -178,70 +185,37 @@
 
             <div class="game-over">
 
-
                 <span>
-                    TODAY'S GAME
+                    COME BACK TOMORROW
                 </span>
 
-
                 <strong>
-                    Game Over
+                    ✦
                 </strong>
-
 
             </div>
 
             {% endif %}
 
 
-
-            <!-- ATTEMPTS -->
-
-            <div class="game-stats">
-
-
-                <div class="game-stat">
-
-
-                    <span>
-                        ATTEMPTS
-                    </span>
-
-
-                    <strong>
-                        {{ attempts }} / {{ max_attempts }}
-                    </strong>
-
-
-                </div>
-
-
-            </div>
-
-
         </section>
-
 
 
         <!-- FOOTER -->
 
         <footer class="game-footer">
 
-
             <span>
                 made for two
             </span>
-
 
             <span>
                 ✦
             </span>
 
-
             <span>
                 2026
             </span>
-
 
         </footer>
 
@@ -252,13 +226,9 @@
 </main>
 
 
-
-<!-- SAME SHOOTING STARS AS HOME -->
-
 <script
     src="{{ url_for('static', filename='js/home.js') }}"
 ></script>
-
 
 </body>
 

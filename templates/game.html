@@ -57,26 +57,34 @@
 
 
         <!-- Header -->
+<header class="game-header">
 
-        <header class="game-header">
+        <a
+            href="{{ url_for('home.home') }}"
+            class="back-button"
+        >
 
-            <a
-                href="{{ url_for('home.home') }}"
-                class="back-button"
-            >
+            <span class="back-icon">
                 ←
-            </a>
-
-            <div class="game-label">
-                FAVORITE GAME
-            </div>
-
-            <span class="game-symbol">
-                ✦
             </span>
 
-        </header>
+            <span>
+                Back
+            </span>
 
+        </a>
+
+
+        <div class="game-label">
+            FAVORITE GAME
+        </div>
+
+
+        <span class="game-symbol">
+            ✦
+        </span>
+
+        </header>
 
         <!-- Intro -->
 
