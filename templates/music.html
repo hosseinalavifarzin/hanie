@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Music — Hanie</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/music.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND
+========================================= -->
+
+<main class="universe">
+
+    <div class="stars stars-small"></div>
+
+    <div class="stars stars-medium"></div>
+
+    <div class="stars stars-large"></div>
+
+    <div class="galaxy galaxy-one"></div>
+
+    <div class="galaxy galaxy-two"></div>
+
+    <div class="ambient-glow"></div>
+
+</main>
+
+
+
+<!-- =========================================
+     PAGE
+========================================= -->
+
+<section class="music-page">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="music-header">
+
+        <a
+            href="{{ url_for('home.home') }}"
+            class="back-button"
+        >
+
+            <span class="back-icon">
+                ←
+            </span>
+
+            <span>
+                BACK
+            </span>
+
+        </a>
+
+
+        <div class="music-label">
+            OUR MUSIC
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <section class="music-intro">
+
+        <span class="intro-eyebrow">
+            SOME SONGS JUST FEEL LIKE US
+        </span>
+
+        <h1>
+            A little soundtrack
+        </h1>
+
+        <p>
+            For the moments that sound better together.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PLAYER
+    ====================================== -->
+
+    <section class="player">
+
+
+        <!-- COVER -->
+
+        <div class="cover-wrapper">
+
+            <img
+                id="album-cover"
+                src=""
+                alt="Album Cover"
+            >
+
+        </div>
+
+
+
+        <!-- SONG INFO -->
+
+        <div class="song-info">
+
+            <h2
+                id="song-title"
+            >
+                Select a song
+            </h2>
+
+
+            <p
+                id="song-artist"
+            >
+                —
+            </p>
+
+        </div>
+
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-wrapper">
+
+            <span
+                id="current-time"
+                class="time"
+            >
+                0:00
+            </span>
+
+
+            <div
+                class="progress-container"
+                id="progress-container"
+            >
+
+                <div
+                    class="progress-bar"
+                    id="progress-bar"
+                ></div>
+
+            </div>
+
+
+            <span
+                id="duration"
+                class="time"
+            >
+                0:00
+            </span>
+
+        </div>
+
+
+
+        <!-- CONTROLS -->
+
+        <div class="player-controls">
+
+            <button
+                type="button"
+                id="previous-button"
+                class="control-button"
+                aria-label="Previous song"
+            >
+                ⏮
+            </button>
+
+
+            <button
+                type="button"
+                id="play-button"
+                class="play-button"
+                aria-label="Play"
+            >
+                ▶
+            </button>
+
+
+            <button
+                type="button"
+                id="next-button"
+                class="control-button"
+                aria-label="Next song"
+            >
+                ⏭
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PLAYLIST
+    ====================================== -->
+
+    <section class="playlist-section">
+
+        <div class="playlist-heading">
+
+            <span>
+                PLAYLIST
+            </span>
+
+            <span>
+                {{ music|length }}
+            </span>
+
+        </div>
+
+
+        <div class="playlist">
+
+
+            {% for song in music %}
+
+            <button
+                class="playlist-item"
+                type="button"
+
+                data-index="{{ loop.index0 }}"
+
+                data-title="{{ song.title }}"
+
+                data-artist="{{ song.artist }}"
+
+                data-file="{{ url_for(
+                    'static',
+                    filename='music/' + song.file
+                ) }}"
+
+                data-cover="{{ url_for(
+                    'static',
+                    filename='images/' + song.cover
+                ) }}"
+            >
+
+
+                <span class="playlist-number">
+
+                    {{ "%02d" | format(loop.index) }}
+
+                </span>
+
+
+                <span class="playlist-cover">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/' + song.cover
+                        ) }}"
+                        alt="{{ song.title }}"
+                    >
+
+                </span>
+
+
+                <span class="playlist-details">
+
+                    <strong>
+                        {{ song.title }}
+                    </strong>
+
+                    <small>
+                        {{ song.artist }}
+                    </small>
+
+                </span>
+
+
+                <span class="playlist-arrow">
+                    ↗
+                </span>
+
+
+            </button>
+
+            {% endfor %}
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="music-footer">
+
+        <span>
+            made for us
+        </span>
+
+        <span>
+            ✦
+        </span>
+
+        <span>
+            2026
+        </span>
+
+    </footer>
+
+
+</section>
+
+
+
+<!-- AUDIO -->
+
+<audio
+    id="audio-player"
+    preload="metadata"
+></audio>
+
+
+
+<script
+    src="{{ url_for('static', filename='js/music.js') }}"
+></script>
+
+
+</body>
+
+</html>
